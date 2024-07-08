@@ -1,2 +1,0 @@
-systemctl start jenkins
-systemctl stop jenkins
