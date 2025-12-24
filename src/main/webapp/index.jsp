@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Mini Webpage</title>
+    <title>Login and Dashboard</title>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,35 +13,48 @@
             padding: 0;
             background-color: #f0f0f5;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
+
+        /* GLOBAL H1 */
+        .global-title {
+            color: #2b6cb0;
+            margin: 20px 0;
+        }
+
+        /* LOGIN */
         .container {
             background-color: #e2e8f0;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 320px;
         }
-        .container h1 {
+
+        .container h2 {
             text-align: center;
             color: #2b6cb0;
         }
-        .container form {
+
+        form {
             display: flex;
             flex-direction: column;
         }
-        .container label {
+
+        label {
             margin: 10px 0 5px;
         }
-        .container input[type="text"],
-        .container input[type="password"] {
+
+        input[type="text"],
+        input[type="password"] {
             padding: 8px;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        .container input[type="submit"] {
+
+        input[type="submit"] {
             margin-top: 20px;
             padding: 10px;
             border-radius: 5px;
@@ -49,146 +63,157 @@
             color: #fff;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-        .container input[type="submit"]:hover {
+
+        input[type="submit"]:hover {
             background-color: #1a4b8c;
         }
-        .mini-page {
-            display: none;
-            margin-top: 20px;
-        }
-        .mini-page.active {
-            display: block;
-        }
-        .mini-page h2 {
-            color: #2b6cb0;
-        }
-        .mini-page p {
-            line-height: 1.6;
-        }
+
         .error {
             color: red;
             margin-top: 10px;
             text-align: center;
         }
+
+        /* DASHBOARD */
+        .mini-page {
+            display: none;
+            width: 100%;
+        }
+
+        .mini-page.active {
+            display: block;
+        }
+
         .web-page {
             background-color: #fafafa;
-            padding: 20px;
             color: #333;
         }
-        .web-page header, .web-page footer {
+
+        header, footer {
             background-color: #4CAF50;
             padding: 20px;
             text-align: center;
             color: white;
         }
-        .web-page main {
-            padding: 20px;
-        }
-        .web-page nav {
-            margin: 10px 0;
+
+        nav {
             background-color: #333;
             padding: 10px;
+            text-align: center;
         }
-        .web-page nav a {
+
+        nav a {
             margin: 0 10px;
             text-decoration: none;
             color: white;
         }
-        .web-page nav a:hover {
+
+        nav a:hover {
             color: #4CAF50;
         }
-        .web-page section {
-            margin: 20px 0;
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
             padding: 20px;
             background-color: #e7e7e7;
             border-radius: 5px;
         }
-        .web-page section h2 {
+
+        section h2 {
             color: #4CAF50;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <!-- Username Field -->
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+<!-- ALWAYS VISIBLE H1 -->
+<h1 class="global-title">Naga Kowshikeswar reddy</h1>
 
-            <!-- Password Field -->
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+<!-- LOGIN PAGE -->
+<div class="container" id="loginContainer">
+    <h2>Login</h2>
 
-            <!-- Submit Button -->
-            <input type="submit" value="Login">
-        </form>
+    <form id="loginForm">
+        <label>Username</label>
+        <input type="text" id="username" required>
 
-        <!-- Error Message -->
-        <div id="errorMessage" class="error"></div>
+        <label>Password</label>
+        <input type="password" id="password" required>
 
-        <!-- Mini Webpage Section -->
-        <div class="mini-page" id="miniPage">
-            <div class="web-page">
-                <header>
-                    <h1>Welcome to My Demo</h1>
-                </header>
+        <input type="submit" value="Login">
+    </form>
 
-                <nav>
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+    <div id="errorMessage" class="error"></div>
+</div>
 
-                <main>
-                    <section id="home">
-                        <h2>Home</h2>
-                        <p>Testing the application</p>
-                    </section>
+<!-- DASHBOARD -->
+<div class="mini-page" id="miniPage">
+    <div class="web-page">
 
-                    <section id="about">
-                        <h2>About</h2>
-                        <p>This web page is used for demo purposes.</p>
-                    </section>
+        <header>
+            <h1>Welcome to my demo</h1>
+        </header>
 
-                    <section id="contact">
-                        <h2>Contact</h2>
-                        <p>Kowshikeswarreddy@gmail.com</p>
-                    </section>
-                </main>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-                <footer>
-                    <p>&copy; 2024 My Web Page</p>
-                </footer>
-            </div>
-        </div>
+        <main>
+            <section id="home">
+                <h2>Home</h2>
+                <p>Testing the application</p>
+            </section>
+
+            <section id="about">
+                <h2>About</h2>
+                <p>This web page is used for demo purposes.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Kowshikeswarreddy@gmail.com</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 My Web Page</p>
+        </footer>
+
     </div>
+</div>
 
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const miniPage = document.getElementById('miniPage');
-        const errorMessage = document.getElementById('errorMessage');
+<script>
+    const loginForm = document.getElementById("loginForm");
+    const miniPage = document.getElementById("miniPage");
+    const loginContainer = document.getElementById("loginContainer");
+    const errorMessage = document.getElementById("errorMessage");
 
-        const correctUsername = "kowshik";
-        const correctPassword = "madam";
+    const correctUsername = "kowshik";
+    const correctPassword = "madam";
 
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            if (username === correctUsername && password === correctPassword) {
-                miniPage.classList.add('active');
-                errorMessage.textContent = '';
-            } else {
-                miniPage.classList.remove('active');
-                errorMessage.textContent = 'Username or password is incorrect. Please try again.';
-            }
-        });
-    </script>
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === correctUsername && password === correctPassword) {
+            loginContainer.style.display = "none";
+            miniPage.classList.add("active");
+            errorMessage.textContent = "";
+        } else {
+            errorMessage.textContent = "Invalid username or password";
+        }
+    });
+</script>
 
 </body>
 </html>
