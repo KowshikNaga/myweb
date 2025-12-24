@@ -133,7 +133,7 @@
 <body>
 
 <!-- ALWAYS VISIBLE H1 -->
-<h1 class="global-title">Naga Koshikewar</h1>
+<h1 class="global-title">Naga Kwoshikewar</h1>
 
 <!-- LOGIN PAGE -->
 <div class="container" id="loginContainer">
