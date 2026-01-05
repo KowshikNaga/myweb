@@ -5,18 +5,18 @@ pipeline{
         PATH = "/opt/maven3/bin:$PATH"
     }
     stages{
-        stage("Git Checkout"){
+        stage("checkgit"){
             steps{
                 git credentialsId: 'demo', url: 'https://github.com/KowshikNaga/myweb.git'
             }
         }
-        stage("Maven Build"){
+        stage("create war file"){
             steps{
                 sh "mvn clean package"
                 sh "mv target/*.war target/myweb.war"
             }
         }
-        stage("deploy-dev"){
+        stage("copy to tomcat"){
             steps{
                 sshagent(['KowshikNaga']) {
                 sh """
